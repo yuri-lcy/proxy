@@ -57,5 +57,6 @@ read -ra DOCKER_RUN_OPTIONS <<< "${DOCKER_RUN_OPTIONS:-}"
     --mount "type=volume,source=gocache,destination=/gocache" \
     --mount "type=volume,source=cache,destination=/home/.cache" \
     --mount "type=volume,source=crates,destination=/home/.cargo/registry" \
+    --mount "type=bind,source=/home/vscode/istio-proxy/envoy,target=/home/vscode/istio-proxy/envoy" \
     ${CONDITIONAL_HOST_MOUNTS} \
     -w "${MOUNT_DEST}" "${IMG}" "$@"

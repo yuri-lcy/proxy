@@ -17,7 +17,8 @@ TOP := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 SHELL := /bin/bash
 BAZEL_STARTUP_ARGS ?=
 BAZEL_BUILD_ARGS ?=
-BAZEL_TARGETS ?= //...
+# BAZEL_TARGETS ?= //...
+BAZEL_BUILD_ARGS ?= --override_repository=envoy=/home/vscode/istio-proxy/envoy
 # Don't build Debian packages and Docker images in tests.
 BAZEL_TEST_TARGETS ?= ${BAZEL_TARGETS}
 E2E_TEST_TARGETS ?= $$(go list ./...)
